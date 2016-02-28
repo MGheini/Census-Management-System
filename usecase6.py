@@ -22,11 +22,11 @@ def open_file(path, year , variant):
     if sheet_founded == False :
         print("data for this variant is not available!")
         return
-    first_sheet = book.sheet_by_index(i-1)
+    sheet = book.sheet_by_index(i-1)
 
     j=0
     found = False
-    for row_value in first_sheet.row_values(16):
+    for row_value in sheet.row_values(16):
         j += 1
         #print(row_value)
         if row_value == year:
@@ -39,8 +39,8 @@ def open_file(path, year , variant):
 
 
     j -= 1
-    values = first_sheet.col_values(j)
-    countries = first_sheet.col_values(2)
+    values = sheet.col_values(j)
+    countries = sheet.col_values(2)
 
     dictionary = dict(zip(countries,values))
 
