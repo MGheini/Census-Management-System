@@ -5,9 +5,15 @@ __author__ = 'M'
 
 from openpyxl import Workbook, load_workbook
 
-#
-def open_file(path, year , country , new_pop):
+def is_secured(country):
+    with open("secured_countries.txt") as f:
+        for line in f:
+            if line.startswith(country):
+                return True
+    return False
 
+
+def open_file(path, year , country , new_pop):
     full_path = os.getcwd()+"\\"+path.replace("/","\\")
     wb_re_read = load_workbook(filename=full_path)
     sheet = wb_re_read.get_sheet_by_name("ESTIMATES")
@@ -51,5 +57,8 @@ country = input("Please enter country name:")
 men_pop = input("Please enter men population:")
 women_pop = input("Please enter women population:")
 
-open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.xlsx",year , country , men_pop)
-open_file("Data/WPP2015_POP_F01_3_TOTAL_POPULATION_FEMALE.xlsx",year , country , women_pop)
+if is_secured(country):
+        print("sorry... you can't change this country population")
+else:
+    open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.xlsx",year , country , men_pop)
+    open_file("Data/WPP2015_POP_F01_3_TOTAL_POPULATION_FEMALE.xlsx",year , country , women_pop)
