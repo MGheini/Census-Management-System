@@ -4,7 +4,7 @@ __author__ = 'M'
 # -*- coding: utf-8 -*-
 
 
-def open_file(path,country_name,year):
+def process_data(path , country_name , year):
     """
     Open and read an Excel file
     """
@@ -39,6 +39,6 @@ def open_file(path,country_name,year):
 country_name = input("Please enter country name:")
 year = input("Please enter year:")
 
-open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS",country_name,year)
+process_data("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS",country_name,year)
 
 

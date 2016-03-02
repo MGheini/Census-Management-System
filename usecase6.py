@@ -5,7 +5,7 @@ __author__ = 'M'
 
 static_start_country = 29
 
-def open_file(path, year , variant):
+def process_data(path, year , variant):
     """
     Open and read an Excel file
     """
@@ -19,7 +19,7 @@ def open_file(path, year , variant):
             sheet_founded = True
             break
 
-    if sheet_founded == False :
+    if not sheet_founded :
         print("data for this variant is not available!")
         return
     sheet = book.sheet_by_index(i-1)
@@ -33,7 +33,7 @@ def open_file(path, year , variant):
             #print("I find it:  "+str(j))
             found = True
             break
-    if found == False :
+    if not found :
         print("data for this year is not available!")
         return
 
@@ -58,4 +58,4 @@ def open_file(path, year , variant):
 
 year = input("Please enter year:")
 variant = input("Please enter variant:")
-open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS",year,variant)
+process_data("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS",year,variant)
