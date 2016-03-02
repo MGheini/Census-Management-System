@@ -55,4 +55,5 @@ data = open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS", "Data/WPP20
 plt.plot(data['years'], data['male_population'], '-o', label='Male')
 plt.plot(data['years'], data['female_population'], '-o', color='red', label='Female')
 plt.legend(loc='lower right')
+plt.savefig('plot3.pdf')
 plt.show()

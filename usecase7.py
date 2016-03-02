@@ -38,4 +38,5 @@ variant = input("Please enter variant: ")
 data = open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS", country_name, variant)
 
 plt.plot(data['years'], data['variant_value'], '-o')
+plt.savefig('plot7.pdf')
 plt.show()
