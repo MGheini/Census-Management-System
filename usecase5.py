@@ -5,7 +5,7 @@ __author__ = 'M'
 
 static_start_country = 29
 
-def open_file(path,year):
+def process_data(path,year):
     """
     Open and read an Excel file
     """
@@ -48,4 +48,4 @@ def open_file(path,year):
 
 
 year = input("Please enter year:")
-open_file("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS",year)
+process_data("Data/WPP2015_POP_F01_2_TOTAL_POPULATION_MALE.XLS",year)

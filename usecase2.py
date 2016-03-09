@@ -14,6 +14,8 @@ def is_secured(country):
 
 
 def open_file(path, year , country , new_pop):
+    if new_pop == "-":
+        return
     full_path = os.getcwd()+"\\"+path.replace("/","\\")
     wb_re_read = load_workbook(filename=full_path)
     sheet = wb_re_read.get_sheet_by_name("ESTIMATES")
